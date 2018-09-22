@@ -1,0 +1,6 @@
+dist: trusty
+
+language: rust
+
+rust:
+  - stable
