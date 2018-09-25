@@ -53,22 +53,32 @@ fn read_file(filename: &str) {
                 .collect();
 
             for item in keys.iter() {
-                if item == "jurisdiction_name" {
-                    demographic.jurisdiction_name = values[0].parse().unwrap();
-                } else if item == "count_participants" {
-                    demographic.count_participants = values[1].parse().unwrap();
-                } else if item == "count_female" {
-                    demographic.count_female = values[2].parse().unwrap();
-                } else if item == "percent_female" {
-                    demographic.percent_female = values[3].parse().unwrap();
-                } else if item == "count_male" {
-                    demographic.count_male = values[4].parse().unwrap();
-                } else if item == "percent_male" {
-                    demographic.percent_male = values[5].parse().unwrap();
-                } else if item == "count_gender_unknown" {
-                    demographic.count_gender_unknown = values[6].parse().unwrap();
-                } else if item == "percent_gender_unknown" {
-                    demographic.percent_gender_unknown = values[7].parse().unwrap();
+                match &item as &str {
+                    "jurisdiction_name" => {
+                        demographic.jurisdiction_name = values[0].parse().unwrap();
+                    },
+                    "count_participants" => {
+                        demographic.count_participants = values[1].parse().unwrap();
+                    },
+                    "count_female" => {
+                        demographic.count_female = values[2].parse().unwrap();
+                    },
+                    "percent_female" => {
+                        demographic.percent_female = values[3].parse().unwrap();
+                    },
+                    "count_male" => {
+                        demographic.count_male = values[4].parse().unwrap();
+                    },
+                    "percent_male" => {
+                        demographic.percent_male = values[5].parse().unwrap();
+                    },
+                    "count_gender_unknown" => {
+                        demographic.count_gender_unknown = values[6].parse().unwrap();
+                    },
+                    "percent_gender_unknown" => {
+                        demographic.percent_gender_unknown = values[7].parse().unwrap();
+                    },
+                    _ => (),
                 }
             }
             list.push(demographic);
